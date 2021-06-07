@@ -1,0 +1,13 @@
+<b class="per-title"> % of students passed in 2020- 2021 </b> 
+<div>
+   <canvas baseChart
+           [data]="pieChartData"
+           [labels]="pieChartLabels"
+           [chartType]="pieChartType"
+           (chartHover)="chartHovered($event)"
+           (chartClick)="chartClicked($event)"></canvas>
+ </div>
+
+ <!-- <app-grade-details *ngIf="selectedRecord?.id"
+ [record] = "selectedRecord"
+ > </app-grade-details> -->

@@ -1,0 +1,35 @@
+ <button (click)="goBack()" class="go-back"> GO BACK</button>
+ 
+ <table>
+    <tr>
+      <th colspan="3" scope="colgroup">{{record.name}} students</th>
+      <th colspan="4" scope="colgroup">Marks: out of 100</th>
+    </tr>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">English</th>
+      <th scope="col">Maths</th>
+      <th scope="col">Science</th>
+      <th scope="col">Social Science</th>
+    </tr>
+    <tr *ngFor="let student of students" >
+      <td> {{student.name}} </td>
+      <td contenteditable="true" (blur)="isAgeValid(student)" id="age_{{student.id}}"> {{student.age}} </td>
+      <td contenteditable="true" (blur)="isEmailValid(student)" id="email_{{student.id}}"> {{student.email}} </td>
+      <td contenteditable="true" (blur)="isMarksValid(student, Subject.ENGLISH)" id="english_{{student.id}}"> {{student.marks.english}} </td>
+      <td contenteditable="true" (blur)="isMarksValid(student, Subject.MATHS)" id="maths_{{student.id}}"> {{student.marks.maths}} </td>
+      <td contenteditable="true" (blur)="isMarksValid(student, Subject.SCIENCE)" id="science_{{student.id}}"> {{student.marks.science}} </td>
+      <td contenteditable="true" (blur)="isMarksValid(student, Subject.SOCIAL_SCIENCE)" id="social_science_{{student.id}}"> {{student.marks.socialScience}} </td>
+    </tr>
+  </table>
+  <div *ngIf="invalidAge" class="show-error">
+    <b>Please enter valid age. Only number greather than 5 are allowed. </b>
+  </div>
+ <div *ngIf="invlidMarks" class="show-error">
+   <b> Please enter valid Marks. Only numbers greather than 40 & less than 100 are allowed. </b>
+  </div>
+  <div *ngIf="invalidEmail" class="show-error">
+    <b>Please enter valid E-mali. </b>
+  </div>
